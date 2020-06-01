@@ -83,7 +83,7 @@ class CNN_1D(nn.Module):
 ## Calling the model 
 model=CNN_1D(1,256,0.5).to(device) 
 
-params = {'pretrain_epoch': 1000, 'lr': 1e-3} 
+params = {'pretrain_epoch': 1000, 'lr': 1e-4} 
 
 # load model
 config = get_model_config('CNN')
