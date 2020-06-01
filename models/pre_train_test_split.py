@@ -11,7 +11,6 @@ from sklearn.metrics import accuracy_score
 from sklearn.metrics import matthews_corrcoef
 from sklearn.metrics import f1_score
 from sklearn.metrics import roc_auc_score
-
 device = torch.device('cpu')
 def trainer(model, train_dl, test_dl, data_id, config, params):
     criterion = nn.CrossEntropyLoss()
@@ -53,7 +52,10 @@ def trainer(model, train_dl, test_dl, data_id, config, params):
     print('The classification accuracy is =', accuracy_score(y_true, y_pred , normalize=True))
     print('The f1 score is = ', f1_score(y_true, y_pred, average='weighted'))
     print('The MCC Coefficient is =', matthews_corrcoef(y_true, y_pred))
-    # print('The ROC_AUC scrore is', roc_auc_score(y_true, y_scores))
+    norm_soft=nn.Softmax(dim=1)
+    norm_y_prob=norm_soft(y_pred)
+    roc=roc_auc_score(y_true.cpu(), norm_y_prob.cpu(), multi_class='ovr')
+    print('The ROC_AUC scrore is', roc)
     print('| End of Pre-training  |')
     print('=' * 50)
     return model
