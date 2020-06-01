@@ -7,7 +7,7 @@ from utils import *
 device = torch.device('cpu')
 
 # Load data, depending on the file path
-my_data= torch.load("data/1s_2c_os.pt")
+my_data= torch.load("/content/drive/My Drive/data/1s_2c_os.pt") 
 
 train_dl = DataLoader(MyDataset(my_data['train_data'], my_data['train_labels']), batch_size=256, shuffle=True, drop_last=True)
 
