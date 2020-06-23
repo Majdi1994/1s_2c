@@ -37,25 +37,7 @@ class CNN_1D(nn.Module):
             nn.Conv1d(8, 8, kernel_size=3, stride=2, padding=1, dilation=1),
             nn.BatchNorm1d(8),
             nn.ReLU(),
-            
-            ## Third Convolutional Layer
-            #nn.Conv1d(8, 8, kernel_size=3, stride=2, padding=1, dilation=1),
-            #nn.BatchNorm1d(8),
-            #nn.ReLU(),
-            
-            ## Forth Convolutional Layer
-            #nn.Conv1d(8, 8, kernel_size=3, stride=2, padding=1, dilation=1),
-            #nn.BatchNorm1d(8),
-            #nn.ReLU(),
-            
-            ## Fifth Convolutional Layer
-            #nn.Conv1d(8, 8, kernel_size=3, stride=2, padding=1, dilation=1),
-            #nn.BatchNorm1d(8),
-            #nn.ReLU(),
-
-            ## Sixth Convolutional Layer
-            #nn.Conv1d(8, 8, kernel_size=3, stride=2, padding=1, dilation=1),
-            
+        
             Flatten(),
             nn.Linear(4064, self.hidden_dim))
         
